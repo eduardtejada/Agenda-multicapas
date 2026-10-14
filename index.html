@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agenda de Contactos</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/Contacto.js" defer></script>
+  <script src="js/AgendaService.js" defer></script>
+  <script src="js/AgendaController.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <div class="contenedor">
+    <header class="encabezado">
+      <h1>Agenda de Contactos</h1>
+    </header>
+
+    <div class="contenido-grid">
+      <section class="card seccion-formulario">
+        <h2>Nuevo Contacto</h2>
+        
+        <div id="mensaje-estado" class="mensaje oculto"></div>
+
+        <form id="form-contacto">
+          <div class="campo">
+            <label for="input-nombre">Nombre</label>
+            <input type="text" id="input-nombre" placeholder="Nombre" required autocomplete="off">
+          </div>
+
+          <div class="campo">
+            <label for="input-apellido">Apellido</label>
+            <input type="text" id="input-apellido" placeholder="Apellido" required autocomplete="off">
+          </div>
+
+          <div class="campo">
+            <label for="input-telefono">Teléfono</label>
+            <input type="tel" id="input-telefono" placeholder="809-555-1234" required autocomplete="off">
+          </div>
+
+          <div class="botones-form">
+            <button type="submit" id="btn-guardar" class="btn btn-primario">Guardar Contacto</button>
+            <button type="reset" id="btn-limpiar" class="btn btn-secundario">Limpiar</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card seccion-listado">
+        <div class="barra-superior-lista">
+          <div class="cabecera-con-contador">
+            <h2>Contactos Guardados</h2>
+            <span id="contador-contactos" class="contador">0 contactos</span>
+          </div>
+
+          <div class="acciones-lista">
+            <input type="text" id="input-buscar" placeholder="Buscar contacto..." class="input-busqueda">
+            <button id="btn-recargar" class="btn btn-secundario" type="button">Actualizar</button>
+          </div>
+        </div>
+
+        <div id="cargando" class="estado-cargando">
+          Cargando contactos...
+        </div>
+
+        <div class="tabla-contenedor">
+          <table class="tabla-contactos">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Teléfono</th>
+              </tr>
+            </thead>
+            <tbody id="cuerpo-tabla">
+            </tbody>
+          </table>
+        </div>
+
+        <div id="mensaje-vacio" class="mensaje-vacio oculto">
+          No hay contactos para mostrar.
+        </div>
+
+        <div id="paginacion" class="paginacion">
+          <button id="btn-ant" class="btn-pag" type="button">&laquo; Anterior</button>
+          <span id="info-pagina">Página 1</span>
+          <button id="btn-sig" class="btn-pag" type="button">Siguiente &raquo;</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
